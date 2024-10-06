@@ -53,22 +53,22 @@ export default function TextForm(props) {
   return (
     <>
     <div className='container' style={{color: props.mode === 'light' ? 'black' : 'white'}}>
-        <h1>{props.heading}</h1>
+        <h1 className='mb-2'>{props.heading}</h1>
         <div className="mb-3">
         <textarea className="form-control" value={text} style={{backgroundColor: props.mode === 'light' ? 'white' : '#343a40' , color: props.mode === 'light' ? 'black' : 'white'}} onChange={HandleOnChange} id="myBox" rows="8"></textarea>
         </div>
-        <button className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className='btn btn-primary mx-1 my-1' onClick={handleLoClick}>Convert to Lowercase</button>
-        <button className='btn btn-primary mx-1 my-1' onClick={handleClClick}>Clear text</button>
-        <button className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy text</button>
-        <button className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces}>Remove extra spaces</button>
+        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
+        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleLoClick}>Convert to Lowercase</button>
+        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleClClick}>Clear text</button>
+        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleCopy}>Copy text</button>
+        <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces}>Remove extra spaces</button>
     </div>
     <div className="container my-3" style={{color: props.mode === 'light' ? 'black' : 'white'}}>
         <h3>Your text summary</h3>
         <p>{countWords(text)} words and {text.length} characters</p>
         <p>{0.008 * countWords(text)} Minutes to read</p>
         <h3>Preview</h3>
-        <p>{text.length > 0 ? text : "Enter something to preview!"}</p>
+        <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
     </div>
     </>
   )
