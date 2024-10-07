@@ -1,0 +1,10 @@
+.nav-link:hover {
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .navbar-brand:hover {
+    color: #ff6f61; /* Custom hover color */
+    transition: color 0.2s ease-in-out;
+  }
+  
